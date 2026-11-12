@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#718ee8">
+  <title>TorgBaz — мобильный магазин</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="TorgBaz">TorgBaz</a>
+    <button class="city" id="cityButton" type="button">Москва <span>⌄</span></button>
+  </header>
+
+  <main>
+    <section class="screen active" id="homeScreen" aria-label="Главная">
+      <div class="section-heading">
+        <div><p class="eyebrow">Добро пожаловать</p><h1>Магазин рядом</h1></div>
+        <span class="live-dot">Открыто</span>
+      </div>
+      <article class="store-card">
+        <div class="store-photo" role="img" aria-label="Здание торгового центра">
+          <div class="building"><span>ТОРГОВЫЙ ЦЕНТР</span></div>
+        </div>
+        <div class="store-info">
+          <div><h2>Торговый центр</h2><p>Москва · Работаем ежедневно</p></div>
+          <button class="outline-btn" id="mapButton">На карте ↗</button>
+        </div>
+      </article>
+      <div class="action-grid">
+        <button class="primary-btn" data-go="catalogScreen">Заказать доставку <span>→</span></button>
+        <button class="soft-btn" data-go="staffScreen">Список сотрудников <span>→</span></button>
+        <button class="soft-btn" data-go="catalogScreen">Список товаров <span>→</span></button>
+      </div>
+      <div class="section-heading compact"><div><p class="eyebrow">Популярное</p><h2>Товары недели</h2></div><button class="text-btn" data-go="catalogScreen">Все товары</button></div>
+      <div class="mini-products">
+        <article class="mini-product"><div class="product-art rice-art">🌾</div><div><b>Рис</b><span>105 ₽ / кг</span></div></article>
+        <article class="mini-product"><div class="product-art sugar-art">▱</div><div><b>Сахар</b><span>75 ₽ / кг</span></div></article>
+      </div>
+    </section>
+
+    <section class="screen" id="catalogScreen" aria-label="Каталог товаров">
+      <div class="section-heading"><div><p class="eyebrow">Ассортимент</p><h1>Каталог</h1></div><span class="cart-count" id="cartCount">0 в корзине</span></div>
+      <label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="Найти товар..." aria-label="Поиск товара"></label>
+      <div class="chips"><button class="chip selected" data-filter="all">Все</button><button class="chip" data-filter="Крупы">Крупы</button><button class="chip" data-filter="Бакалея">Бакалея</button></div>
+      <div class="product-list" id="productList">
+        <article class="product-card" data-name="Рис" data-category="Крупы" data-price="105"><div class="product-art rice-art large">🌾</div><div class="product-copy"><span class="tag">Крупы</span><h3>Рис</h3><p>Рассыпчатый, 1 кг</p><b>105 ₽ <small>/ кг</small></b></div><button class="add-btn" aria-label="Добавить рис">+</button></article>
+        <article class="product-card" data-name="Сахар" data-category="Бакалея" data-price="75"><div class="product-art sugar-art large">▱</div><div class="product-copy"><span class="tag">Бакалея</span><h3>Сахар</h3><p>Белый, 1 кг</p><b>75 ₽ <small>/ кг</small></b></div><button class="add-btn" aria-label="Добавить сахар">+</button></article>
+        <article class="product-card" data-name="Гречка" data-category="Крупы" data-price="92"><div class="product-art buckwheat-art large">✳</div><div class="product-copy"><span class="tag">Крупы</span><h3>Гречка</h3><p>Ядрица, 1 кг</p><b>92 ₽ <small>/ кг</small></b></div><button class="add-btn" aria-label="Добавить гречку">+</button></article>
+      </div>
+      <aside class="cart-bar" id="cartBar"><div><b id="cartSummary">Корзина пуста</b><span>Добавляйте товары в заказ</span></div><button id="orderButton">Оформить</button></aside>
+    </section>
+
+    <section class="screen" id="staffScreen" aria-label="Сотрудники">
+      <div class="section-heading"><div><p class="eyebrow">Команда магазина</p><h1>Сотрудники</h1></div></div>
+      <article class="employee-card">
+        <div class="employee-photo"><div class="avatar">АС</div><span class="online">На смене</span></div>
+        <div class="employee-details"><span class="tag">Кладовщик</span><h2>Сидоров Алексей</h2><p>Поможет с наличием и подготовкой заказа.</p><div class="rating" aria-label="Рейтинг 3 из 5"><span>★</span><span>★</span><span>★</span><span class="muted">★</span><span class="muted">★</span></div></div>
+      </article>
+      <div class="rating-panel"><h3>Оцените работу сотрудника</h3><p>Ваш отзыв поможет нам стать лучше</p><div class="stars" id="ratingStars" aria-label="Поставить оценку"><button data-rating="1">★</button><button data-rating="2">★</button><button data-rating="3">★</button><button data-rating="4">★</button><button data-rating="5">★</button></div><p class="rating-message" id="ratingMessage">Выберите оценку</p></div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Основная навигация">
+    <button class="nav-item active" data-go="homeScreen"><span>⌂</span><small>Главная</small></button>
+    <button class="nav-item" data-go="catalogScreen"><span>▦</span><small>Товары</small></button>
+    <button class="nav-item" data-go="staffScreen"><span>♙</span><small>Команда</small></button>
+  </nav>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
